@@ -13,17 +13,16 @@ function Time() {
         setIsStart(true)
     }
 
-    // useEffect(() => {
-    //     let timerId
-    //     if (isStart) {
-    //         timerId = setInterval(() => {
-    //             setTime(time - 1)
-    //             console.log('Hello')
-    //         }, 1000)
-    //     }
+    useEffect(() => {
+        let timerId
+        if (isStart) {
+            timerId = setInterval(() => {
+                setTime((time) => time - 1)
+            }, 1000)
+        }
 
-    //     return () => clearInterval(timerId)
-    // }, [isStart])
+        return () => clearInterval(timerId)
+    }, [isStart])
 
     return (
         <Styled.Container>
