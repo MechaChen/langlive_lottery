@@ -1,10 +1,21 @@
 import { createGlobalStyle } from 'styled-components'
+import { normalize } from 'styled-normalize'
 import { Provider } from 'react-redux'
 import store from '@redux/store'
 
 const GlobalStyle = createGlobalStyle`
+  ${normalize}
+
   body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
   }
 `
 
