@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from '@redux/store'
+import { setTime, decreTime } from '@redux/actions'
 import * as Styled from './styles'
 
-function Time() {
+function CountDown() {
     const [inputVal, setInputVal] = useState<string>('')
-    const [time, setTime] = useState<number>(0)
+    const { Time } = useSelector((state: RootState) => state)
+
+    const dispatch = useDispatch()
     const [isStart, setIsStart] = useState<boolean>(false)
 
     const startCountDown = () => {
         if (!inputVal.match(/\d/g)) alert('請輸入數字')
 
-        setTime(Number(inputVal))
+        dispatch(setTime(Number(inputVal)))
         setIsStart(true)
     }
 
@@ -17,7 +22,7 @@ function Time() {
         let timerId
         if (isStart) {
             timerId = setInterval(() => {
-                setTime((time) => time - 1)
+                dispatch(decreTime(1))
             }, 1000)
         }
 
@@ -36,9 +41,9 @@ function Time() {
                 分鐘
             </label>
             <button onClick={startCountDown}>設定</button>
-            <div>{time}</div>
+            <div>{Time}</div>
         </Styled.Container>
     )
 }
 
-export default Time
+export default CountDown

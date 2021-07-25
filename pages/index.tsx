@@ -1,11 +1,11 @@
 import List from '@components/List'
-import Time from '@components/Time'
+import CountDown from '@components/CountDown'
 import * as Styled from './styles'
 
 const HomePage = () => {
     return (
         <Styled.Container>
-            <Time />
+            <CountDown />
             <List />
         </Styled.Container>
     )
