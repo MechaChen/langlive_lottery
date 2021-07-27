@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '@redux/store'
+import { useRouter } from 'next/router'
 import { setTime, decreTime } from '@redux/actions'
 import * as Styled from './styles'
 
 function CountDown() {
-    const [inputVal, setInputVal] = useState<string>('')
     const { Time, List } = useSelector((state: RootState) => state)
+    const [inputVal, setInputVal] = useState<string>('')
     const [timer, setTimer] = useState<NodeJS.Timer>()
+    const router = useRouter()
 
     const dispatch = useDispatch()
 
     // 倒數到 0 時停止
     useEffect(() => {
-        if (Time === 0) {
+        if (Time === 0 && timer) {
             clearInterval(timer)
 
             let owner = List[Math.floor(Math.random() * List.length)]
-            console.log('owner =>', owner)
+            router.push(`/${owner.id}`)
         }
     }, [Time])
 
@@ -28,7 +30,7 @@ function CountDown() {
         clearInterval(timer)
 
         // 設定初始時間
-        dispatch(setTime(Number(inputVal)))
+        dispatch(setTime(Number(inputVal) * 60))
         // 啟動倒數計時器
         let newTimer = setInterval(() => dispatch(decreTime(1)), 1000)
         setTimer(newTimer)
