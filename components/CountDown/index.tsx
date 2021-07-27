@@ -6,15 +6,19 @@ import * as Styled from './styles'
 
 function CountDown() {
     const [inputVal, setInputVal] = useState<string>('')
-    const { Time } = useSelector((state: RootState) => state)
+    const { Time, List } = useSelector((state: RootState) => state)
     const [timer, setTimer] = useState<NodeJS.Timer>()
 
     const dispatch = useDispatch()
-    const [isStart, setIsStart] = useState<boolean>(false)
 
     // 倒數到 0 時停止
     useEffect(() => {
-        Time === 0 && clearInterval(timer)
+        if (Time === 0) {
+            clearInterval(timer)
+
+            let owner = List[Math.floor(Math.random() * List.length)]
+            console.log('owner =>', owner)
+        }
     }, [Time])
 
     const startCountDown = () => {
