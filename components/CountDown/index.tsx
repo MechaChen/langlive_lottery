@@ -7,26 +7,27 @@ import * as Styled from './styles'
 function CountDown() {
     const [inputVal, setInputVal] = useState<string>('')
     const { Time } = useSelector((state: RootState) => state)
+    const [timer, setTimer] = useState<NodeJS.Timer>()
 
     const dispatch = useDispatch()
     const [isStart, setIsStart] = useState<boolean>(false)
 
+    // 倒數到 0 時停止
     useEffect(() => {
-        let timerId
-        if (isStart) {
-            timerId = setInterval(() => {
-                dispatch(decreTime(1))
-            }, 1000)
-        }
-
-        return () => clearInterval(timerId)
-    }, [isStart])
+        Time === 0 && clearInterval(timer)
+    }, [Time])
 
     const startCountDown = () => {
         if (!inputVal.match(/\d/g)) alert('請輸入數字')
 
-        dispatch(setTime(Number(inputVal) * 60))
-        setIsStart(true)
+        // 清除上次的計時器
+        clearInterval(timer)
+
+        // 設定初始時間
+        dispatch(setTime(Number(inputVal)))
+        // 啟動倒數計時器
+        let newTimer = setInterval(() => dispatch(decreTime(1)), 1000)
+        setTimer(newTimer)
     }
 
     const covertToClock = () => {
