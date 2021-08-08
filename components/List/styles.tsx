@@ -9,6 +9,7 @@ export const List = styled.ul`
     max-height: 260px;
     overflow-y: auto;
     border: 1px solid #ccc;
+    border-radius: 4px;
 `
 
 export const Drawer = styled.li`
@@ -18,4 +19,5 @@ export const Drawer = styled.li`
     height: 40px;
     box-sizing: border-box;
     background: #ccc;
+    border-radius: 4px;
 `
