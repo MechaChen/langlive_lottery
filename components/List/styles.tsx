@@ -1,7 +1,11 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    width: 50%;
+    width: 100%;
+
+    @media all and (min-width: 980px) {
+        width: 50%;
+    }
 `
 
 export const List = styled.ul`
