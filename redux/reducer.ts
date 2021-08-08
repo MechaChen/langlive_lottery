@@ -1,4 +1,4 @@
-import { DECRE_TIME, SET_TIME } from './actionTypes'
+import { DECRE_TIME, SET_TIME, SET_TIMER } from './actionTypes'
 
 export interface I_Drawer {
     id: string
@@ -7,11 +7,13 @@ export interface I_Drawer {
 
 interface I_State {
     Time: number
+    Timer: NodeJS.Timer
     List: Array<I_Drawer>
 }
 
 const defaultState: I_State = {
     Time: 0,
+    Timer: undefined,
     List: [
         { id: '1', name: '釘手中' },
         { id: '2', name: '憐剩文' },
@@ -28,6 +30,8 @@ export default function reducer(state = defaultState, action) {
     switch (action.type) {
         case SET_TIME:
             return { ...state, Time: action.payload }
+        case SET_TIMER:
+            return { ...state, Timer: action.payload }
         case DECRE_TIME:
             return { ...state, Time: state.Time - action.payload }
         default:

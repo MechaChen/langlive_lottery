@@ -5,3 +5,7 @@ export const Container = styled.div`
     margin: auto;
     max-width: 1200px;
 `
+
+export const CountDownContainer = styled.div`
+    padding-right: 20px;
+`
