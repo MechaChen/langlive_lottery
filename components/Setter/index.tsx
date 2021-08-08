@@ -26,11 +26,12 @@ function CountDown() {
         <div>
             <h3>抽獎時間</h3>
             <label>
-                <input
+                <Styled.Input
                     type="number"
                     value={inputVal}
                     onChange={(e) => setInputVal(e.target.value)}
                     disabled={!!Timer}
+                    placeholder="請輸入 0 ~ 60"
                 />
                 分鐘
             </label>
