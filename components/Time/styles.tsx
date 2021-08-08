@@ -25,7 +25,7 @@ export const Circle = styled.svg`
         stroke-dashoffset: 0px;
         stroke-linecap: round;
         stroke-width: 5px;
-        stroke: #666;
+        stroke: ${(props) => (props.LoopTime > 0 ? '#26bec9' : '#666')};
         fill: none;
         animation: ${(props) =>
             props.LoopTime > 0 &&

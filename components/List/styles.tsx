@@ -9,6 +9,7 @@ export const Container = styled.div`
 `
 
 export const List = styled.ul`
+    margin-bottom: 0;
     padding: 10px 15px;
     max-height: 260px;
     overflow-y: auto;

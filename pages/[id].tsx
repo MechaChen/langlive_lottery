@@ -23,7 +23,7 @@ function Owner() {
     return (
         <Styled.Container>
             <h3>抽獎結果</h3>
-            <div>{owner.name}</div>
+            <Styled.Text>{owner.name}</Styled.Text>
             <Styled.Button onClick={backToHome}>返回抽獎頁</Styled.Button>
         </Styled.Container>
     )
