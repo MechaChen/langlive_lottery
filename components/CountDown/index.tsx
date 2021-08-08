@@ -24,10 +24,9 @@ function CountDown() {
     }, [Time])
 
     const startCountDown = () => {
-        if (!inputVal.match(/\d/g)) alert('請輸入數字')
-
-        // 清除上次的計時器
-        clearInterval(timer)
+        if (!inputVal.match(/\d/g)) return alert('請輸入數字')
+        if (Number(inputVal) < 0) return alert('請輸入大於 0 的數字')
+        if (Number(inputVal) > 60) return alert('請輸入小於 60 的數字')
 
         // 設定初始時間
         dispatch(setTime(Number(inputVal) * 60))
@@ -57,7 +56,9 @@ function CountDown() {
                 />
                 分鐘
             </label>
-            <button onClick={startCountDown}>設定</button>
+            <button onClick={startCountDown} disabled={!!timer}>
+                {!!timer ? '倒數中' : '開始倒數'}
+            </button>
             <div>{covertToClock()}</div>
         </Styled.Container>
     )
