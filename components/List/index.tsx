@@ -4,7 +4,10 @@ import { I_Drawer } from '@redux/reducer'
 import * as Styled from './styles'
 
 function List() {
-    const { List } = useSelector((state: RootState) => state)
+    // useSelector 會執行 strict reference，
+    // 若只取 一個屬性且屬性不會變動，
+    // 則不會觸發 re-render
+    const List = useSelector((state: RootState) => state.List)
 
     return (
         <Styled.Container>
