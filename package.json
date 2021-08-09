@@ -1,48 +1,48 @@
 {
-  "name": "langlive_lottery",
-  "version": "1.0.0",
-  "description": "langlive_lottery",
-  "main": "index.js",
-  "scripts": {
-    "dev": "open http://localhost:3000 && next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "commit": "cz"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MechaChen/langlive_lottery.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MechaChen/langlive_lottery/issues"
-  },
-  "homepage": "https://github.com/MechaChen/langlive_lottery#readme",
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
+    "name": "langlive_lottery",
+    "version": "1.0.0",
+    "description": "langlive_lottery",
+    "main": "index.js",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "commit": "cz"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MechaChen/langlive_lottery.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MechaChen/langlive_lottery/issues"
+    },
+    "homepage": "https://github.com/MechaChen/langlive_lottery#readme",
+    "config": {
+        "commitizen": {
+            "path": "cz-conventional-changelog"
+        }
+    },
+    "dependencies": {
+        "next": "^11.0.1",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-redux": "^7.2.4",
+        "redux": "^4.1.0",
+        "styled-components": "^5.3.0",
+        "styled-normalize": "^8.0.7"
+    },
+    "devDependencies": {
+        "@types/node": "^16.4.1",
+        "@types/react": "^17.0.14",
+        "@types/react-redux": "^7.1.18",
+        "babel-plugin-styled-components": "^1.13.2",
+        "eslint": "^7.31.0",
+        "eslint-config-next": "^11.0.1",
+        "redux-devtools-extension": "^2.13.9",
+        "typescript": "^4.3.5"
     }
-  },
-  "dependencies": {
-    "next": "^11.0.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.4",
-    "redux": "^4.1.0",
-    "styled-components": "^5.3.0",
-    "styled-normalize": "^8.0.7"
-  },
-  "devDependencies": {
-    "@types/node": "^16.4.1",
-    "@types/react": "^17.0.14",
-    "@types/react-redux": "^7.1.18",
-    "babel-plugin-styled-components": "^1.13.2",
-    "eslint": "^7.31.0",
-    "eslint-config-next": "^11.0.1",
-    "redux-devtools-extension": "^2.13.9",
-    "typescript": "^4.3.5"
-  }
 }
